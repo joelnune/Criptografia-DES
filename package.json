@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "crypto-js": "^4.1.1"
+    "buffer": "^6.0.3",
+    "crypto": "^1.0.1"
+    
   }
+  
 }
