@@ -1,11 +1,13 @@
 # Criptografia-DES
 
- $env:NODE_OPTIONS = "--openssl-legacy-provider"
+## rode isso no shell
+ 	$env:NODE_OPTIONS = "--openssl-legacy-provider"
+ 	export NODE_OPTIONS=--openssl-legacy-provider
 
-# código da biblioteca
+## código da biblioteca
 https://github.com/nodejs/node/tree/main/src/crypto
 
-# exemplo pseudo-codigo:
+## exemplo pseudo-codigo:
 
 	var key 
 	var keys[16]
