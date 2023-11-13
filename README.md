@@ -7,32 +7,32 @@ https://github.com/nodejs/node/tree/main/src/crypto
 
 # exemplo pseudo-codigo:
 
-var key 
-var keys[16]
-var left, right
+	var key 
+	var keys[16]
+	var left, right
 
-// Generate Keys
+	// Generate Keys
 
-// PC1 (64 bits to 56 bits) 
-key := permutation(key, PC1)
-left := (key rightshift 28) and 0xFFFFFFF
-right := key and 0xFFFFFFF
+	// PC1 (64 bits to 56 bits) 
+	key := permutation(key, PC1)
+	left := (key rightshift 28) and 0xFFFFFFF
+	right := key and 0xFFFFFFF
 
-for i from 0 to 16 do
+	for i from 0 to 16 do
 	right := right leftrotate KEY_shift[i]
 	left := left leftrotate  KEY_shift[i]
 	var concat := (left leftshift 28) or right
 	// PC2 (56bits to 48bits)
 	keys[i] := permutation(concat, PC2)
-end for
+	end for
 
-// To decrypt a message reverse the order of the keys
-if decrypt do
+	// To decrypt a message reverse the order of the keys
+	if decrypt do
 	reverse keys
-end if
+	end if
 
-// Encrypt or Decrypt
-for each 64-bit chunk of padded message do
+	// Encrypt or Decrypt
+	for each 64-bit chunk of padded message do
 	var tmp
 
 	// IP
@@ -55,4 +55,4 @@ for each 64-bit chunk of padded message do
 	var cipher_chunk := (right leftshift 32) or left
 	// FP
 	cipher_chunk := permutation(cipher_chunk, FP)
-end for
+	end for
